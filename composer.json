@@ -1,0 +1,11 @@
+{
+    "name": "norgul/advart",
+    "description": "Automatic name resolution for Artisan make commands",
+    "authors": [
+        {
+            "name": "Marko Dupor",
+            "email": "marko.dupor@gmail.com"
+        }
+    ],
+    "require": {}
+}
