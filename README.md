@@ -1,5 +1,5 @@
 # Advart
-## Laravel - Artisan "make" command upgrade
+## Laravel 5 - Automatic name resolution for Artisan make commands
 
 ### Introduction
 
@@ -21,7 +21,8 @@ You can call any (///NOT YET///) command by typing `artisan make {name} {--flag}
 ### Example 1
 
 `artisan make MyNewController` -> makes a new blank controller
-`artisan make MyNewController --flag=r` makes a controller with `-r` || `--resource` option
+
+`artisan make MyNewController --flag=r` -> makes a controller with `-r` || `--resource` option
 
 This also means that you can pass in `--flag=resource` and it will work as well.
 
