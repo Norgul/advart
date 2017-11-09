@@ -2,7 +2,6 @@
 
 namespace Norgul\Advart\Commands;
 
-use Norgul\Advart\AdvartServiceProvider;
 use Illuminate\Console\Command;
 use Illuminate\Support\Facades\Artisan;
 
@@ -13,7 +12,7 @@ class AdvartCommand extends Command
      *
      * @var string
      */
-    protected $signature = 'make {name} {--resource=}';
+    protected $signature = 'make {name} {--f|flag= : Specify a flag to forward}';
 
     /**
      * The console command description.
@@ -40,21 +39,45 @@ class AdvartCommand extends Command
     public function handle()
     {
         $name = $this->argument('name');
+        $options = $this->options();
 
         if (preg_match('/controller/i', $name))
-            $this->makeController($name);
-        else
-            echo 'nije';
+            $this->makeController($name, $options);
 
+        if (preg_match('/model/i', $name))
+            $this->makeModel($name);
+
+        if (preg_match('/request/i', $name))
+            $this->makeRequest($name);
+
+        if (preg_match('/seeder/i', $name))
+            $this->makeSeeder($name);
     }
 
-    protected function makeController($name)
+    protected function makeController($name, $options)
     {
         try {
-            Artisan::call('make:controller', ['name' => $name]);
+            Artisan::call('make:controller', [
+                'name'       => $name,
+                '--resource' => in_array($options['flag'], ['resource', 'r']),
+                '--model'    => in_array($options['flag'], ['model', 'm']),
+                '--parent'   => in_array($options['flag'], ['parent', 'p']),
+            ]);
             $this->info('Controller created successfully');
         } catch (\Exception $e) {
             $this->error("Whoops, something went wrong.");
         }
+    }
+
+    private function makeModel($name)
+    {
+    }
+
+    private function makeRequest($name)
+    {
+    }
+
+    private function makeSeeder($name)
+    {
     }
 }
