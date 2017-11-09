@@ -1,11 +1,16 @@
 {
-    "name": "norgul/advart",
-    "description": "Automatic name resolution for Artisan make commands",
-    "authors": [
-        {
-            "name": "Marko Dupor",
-            "email": "marko.dupor@gmail.com"
-        }
-    ],
-    "require": {}
+  "name": "norgul/advart",
+  "description": "Automatic name resolution for Artisan make commands",
+  "license": "MIT",
+  "keywords": ["framework", "laravel", "artisan", "name", "resolution", "command"],
+  "authors": [
+    {
+      "name": "Marko Dupor",
+      "email": "marko.dupor@gmail.com"
+    }
+  ],
+  "require": {
+    "php": ">=7.0.0",
+    "laravel/framework": "5.*.*"
+  }
 }
